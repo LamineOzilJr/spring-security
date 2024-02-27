@@ -11,11 +11,6 @@ pipeline {
                  bat "C:/apache-maven-3.9.5/bin/mvn test"
             }
         }
-        stage('Deploy') {
-            steps {
-                 bat 'C:/Docker/resources/bin/docker-compose up -d --build'
-            }
-        }
          stage('Push to Docker Hub') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub_credentials', passwordVariable: 'DOCKER_HUB_PASSWORD', usernameVariable: 'DOCKER_HUB_USERNAME')]) {
