@@ -13,8 +13,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                 def programFilesShortName = bat(script: 'dir /X C:\\ | find "Program Files"', returnStatus: true).trim()
-                 bat "C:/${programFilesShortName}/Docker/Docker/resources/bin/docker-compose/docker-compose up -d --build"
+                 bat "C:/Program Files/Docker/Docker/resources/bin/docker-compose/docker-compose up -d --build"
             }
         }
     }
